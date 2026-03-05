@@ -269,7 +269,7 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}
       <header className="border-b border-zinc-800/60 bg-zinc-900/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
           <h1 className="text-lg font-semibold text-zinc-100 flex items-center gap-2">
             <span className="text-2xl">&#9835;</span> Music Generator
           </h1>
@@ -282,7 +282,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-6 space-y-4">
+      <main className="max-w-3xl mx-auto px-4 py-6 space-y-4">
         {/* API Key Settings */}
         {showSettings && (
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 animate-in">
@@ -312,40 +312,43 @@ export default function Home() {
 
         {/* Main Form */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-4">
-          {/* Caption */}
-          <div>
-            <div className="flex items-center justify-between mb-1.5">
-              <label className="text-xs font-medium text-zinc-400">
-                Caption <span className="text-red-400">*</span>
+          {/* Lyrics & Caption side by side */}
+          <div className="grid grid-cols-2 gap-3">
+            {/* Lyrics - left, taller */}
+            <div>
+              <label className="text-xs font-medium text-zinc-400 block mb-1.5">
+                Lyrics{" "}
+                <span className="text-zinc-500 font-normal">
+                  (empty = instrumental)
+                </span>
               </label>
-              <span className={`text-[10px] tabular-nums ${caption.length > 280 ? "text-amber-400" : "text-zinc-600"}`}>
-                {caption.length}/{getModel(model).limits.max_caption}
-              </span>
+              <textarea
+                value={lyrics}
+                onChange={(e) => setLyrics(e.target.value)}
+                placeholder="[Verse 1]&#10;Write your lyrics here...&#10;&#10;[Chorus]&#10;..."
+                rows={8}
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors resize-y"
+              />
             </div>
-            <textarea
-              value={caption}
-              onChange={(e) => setCaption(e.target.value.slice(0, getModel(model).limits.max_caption))}
-              placeholder="Describe the style and mood: upbeat electronic dance music with energetic synths and punchy drums..."
-              rows={3}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors resize-y"
-            />
-          </div>
 
-          {/* Lyrics */}
-          <div>
-            <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-              Lyrics{" "}
-              <span className="text-zinc-500 font-normal">
-                (leave empty for instrumental)
-              </span>
-            </label>
-            <textarea
-              value={lyrics}
-              onChange={(e) => setLyrics(e.target.value)}
-              placeholder="[Verse 1]&#10;Write your lyrics here...&#10;&#10;[Chorus]&#10;..."
-              rows={3}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors resize-y"
-            />
+            {/* Caption - right */}
+            <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-xs font-medium text-zinc-400">
+                  Caption <span className="text-red-400">*</span>
+                </label>
+                <span className={`text-[10px] tabular-nums ${caption.length > 280 ? "text-amber-400" : "text-zinc-600"}`}>
+                  {caption.length}/{getModel(model).limits.max_caption}
+                </span>
+              </div>
+              <textarea
+                value={caption}
+                onChange={(e) => setCaption(e.target.value.slice(0, getModel(model).limits.max_caption))}
+                placeholder="Describe the style and mood: upbeat electronic dance music with energetic synths and punchy drums..."
+                rows={8}
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors resize-y"
+              />
+            </div>
           </div>
 
           {/* Model & Format */}
