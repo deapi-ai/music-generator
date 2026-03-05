@@ -33,6 +33,69 @@ const MODELS = [
 
 const getModel = (slug: string) => MODELS.find((m) => m.value === slug)!;
 
+const EXAMPLES = [
+  {
+    title: "Lo-fi Chill Beat",
+    caption: "lo-fi hip-hop, warm vinyl crackle, mellow piano chords, soft boom-bap drums, airy pads, relaxed bedroom production, nostalgic and dreamy atmosphere",
+    lyrics: "[Instrumental]\n\n[Intro - ambient]\n\n[Main Theme - piano]\n\n[Breakdown - mellow]\n\n[Main Theme - piano]\n\n[Outro - fade out]",
+    bpm: "85", keyscale: "F Major", timesignature: "4", vocalLanguage: "en", duration: 120,
+  },
+  {
+    title: "Pop Ballad (Female)",
+    caption: "emotional pop ballad, female vocal, breathy and intimate, piano-driven, lush strings building to powerful chorus, polished studio production, bittersweet atmosphere",
+    lyrics: "[Intro - piano]\n\n[Verse 1]\nSilent rooms and fading light\nYour shadow still on the wall\nI replay our last goodbye\nWondering where we lost it all\n\n[Pre-Chorus - building energy]\nBut every scar you left behind\nIs a map of what was mine\n\n[Chorus - powerful]\nSo let me burn like falling stars\nLight the sky with all these scars\nBrief and bright, I won't pretend\nThis is how the story ends\n\n[Verse 2]\nPhotographs in monochrome\nYour laughter frozen in time\nThe coffee cup you left by the door\nStill carries your perfume line\n\n[Bridge - whispered]\nIf tomorrow erases us\nAt least we shone tonight\n\n[Final Chorus - powerful]\nSo let me burn like falling stars\nLight the sky with all these scars\nBrief and bright, no need to mend\nTHIS IS HOW THE STORY ENDS\n\n[Outro - fade out]",
+    bpm: "72", keyscale: "A Minor", timesignature: "4", vocalLanguage: "en", duration: 180,
+  },
+  {
+    title: "Hard Rock Anthem",
+    caption: "hard rock, heavy distorted electric guitar riffs, punchy drums, driving bass, raw male vocal, powerful and aggressive energy, arena rock anthem, high-fidelity production",
+    lyrics: "[Intro - heavy guitar riff]\n\n[Verse 1]\nConcrete jungle shaking ground\nEngines roaring, primal sound\nNo more chains to hold us back\nWe ride the lightning, never crack\n\n[Pre-Chorus - building energy]\nFeel the thunder in your veins\nBreak the silence, break the chains\n\n[Chorus - anthemic]\nWE ARE THE STORM TONIGHT\nBURNING THROUGH THE ENDLESS NIGHT\nRAISE YOUR FISTS UP TO THE SKY\nWE WILL NEVER SAY GOODBYE\n\n[Guitar Solo]\n\n[Chorus - anthemic]\nWE ARE THE STORM TONIGHT\nBURNING THROUGH THE ENDLESS NIGHT\n\n[Outro - heavy]",
+    bpm: "140", keyscale: "E Minor", timesignature: "4", vocalLanguage: "en", duration: 150,
+  },
+  {
+    title: "Jazz Piano Trio",
+    caption: "jazz piano trio, upright bass, brushed drums, warm intimate club recording, sophisticated harmony, swing feel, classic Blue Note aesthetic, smooth and mellow",
+    lyrics: "[Instrumental]\n\n[Intro - piano]\n\n[Main Theme - swing]\n\n[Piano Solo - expressive]\n\n[Bass Solo - walking bass]\n\n[Main Theme - swing]\n\n[Outro - gentle]",
+    bpm: "130", keyscale: "Bb Major", timesignature: "4", vocalLanguage: "en", duration: 150,
+  },
+  {
+    title: "EDM Festival Drop",
+    caption: "EDM, progressive house, massive synth leads, euphoric build-ups, heavy bass drops, energetic festival atmosphere, punchy kick drums, bright supersaw chords, polished electronic production",
+    lyrics: "[Instrumental]\n\n[Intro - ambient pads]\n\n[Build - rising energy]\n\n[Drop - explosive]\n\n[Breakdown - atmospheric]\n\n[Build - rising energy]\n\n[Drop - explosive]\n\n[Outro - fade out]",
+    bpm: "128", keyscale: "F Minor", timesignature: "4", vocalLanguage: "en", duration: 180,
+  },
+  {
+    title: "Orchestral Cinematic",
+    caption: "cinematic orchestral, full symphony orchestra, epic brass fanfare, soaring strings, dramatic timpani, heroic and triumphant, film score style, Hans Zimmer inspired, grand and majestic",
+    lyrics: "[Instrumental]\n\n[Intro - strings, low energy]\n\n[Build - brass joining]\n\n[Climax - full orchestra, powerful]\n\n[Breakdown - solo violin, melancholic]\n\n[Final Climax - powerful, triumphant]\n\n[Outro - fade out]",
+    bpm: "90", keyscale: "D Minor", timesignature: "4", vocalLanguage: "en", duration: 180,
+  },
+  {
+    title: "Reggaeton",
+    caption: "reggaeton, dembow rhythm, Latin urban, catchy perreo beat, warm male vocal, 808 bass, tropical synths, dancehall influence, summer party vibe, polished production",
+    lyrics: "[Intro]\n\n[Verse 1]\nLa noche se enciende ya\nEl ritmo no va a parar\nTu cuerpo se mueve slow\nY el beat te va a dominar\n\n[Pre-Chorus]\nDale vuelta, no pares\nQue la calle es de nadie\n\n[Chorus]\nBaila, baila, baila\nQue esta noche es para ti\nMueve, mueve, mueve\nHasta que salga el sol aqui\n\n[Verse 2]\nLas luces del boulevard\nReflejan tu mirada\nNo importa lo demas\nEsta noche no hay manana\n\n[Chorus]\nBaila, baila, baila\nQue esta noche es para ti\n\n[Outro]",
+    bpm: "95", keyscale: "C Minor", timesignature: "4", vocalLanguage: "es", duration: 150,
+  },
+  {
+    title: "R&B / Neo-Soul",
+    caption: "neo-soul R&B, silky female vocal, warm Rhodes piano, mellow bass guitar, laid-back groovy drums, lush vocal harmonies, intimate and sensual, Erykah Badu inspired, vintage warmth",
+    lyrics: "[Intro - Rhodes piano]\n\n[Verse 1]\nCandles burning by the window\nYour jacket still on the chair\nI close my eyes and I can feel you\nYour fingertips in my hair\n\n[Pre-Chorus]\nWe don't need a single word\nJust the space between\n\n[Chorus - harmonies]\nStay a little longer now\nLet the world outside slow down\nIn this room there's only us\nNothing more and nothing less\n\n[Verse 2]\nVinyl spinning in the corner\nShadows dancing on the wall\nYour whisper like a secret\nOnly I can recall\n\n[Bridge - whispered]\nTime don't move when you're this close\n\n[Chorus - harmonies]\nStay a little longer now\nLet the world outside slow down\n\n[Outro - fade out]",
+    bpm: "78", keyscale: "Eb Major", timesignature: "4", vocalLanguage: "en", duration: 180,
+  },
+  {
+    title: "Death Metal",
+    caption: "death metal, blast beats, heavy downtuned guitars, guttural growling vocals, aggressive double bass drums, dark and brutal atmosphere, technical riffing, raw production",
+    lyrics: "[Intro - heavy riff]\n\n[Verse 1]\nBeneath the dying sun\nA throne of ashen bones\nThe earth begins to crack\nAs darkness claims its own\n\n[Chorus - aggressive]\nDEVOUR THE LIGHT\nCRUSH THE REMAINS\nENDLESS VOID\nETERNAL PAIN\n\n[Breakdown - slow, crushing]\n\n[Guitar Solo]\n\n[Chorus - aggressive]\nDEVOUR THE LIGHT\nCRUSH THE REMAINS\n\n[Outro - heavy]",
+    bpm: "180", keyscale: "C# Minor", timesignature: "4", vocalLanguage: "en", duration: 120,
+  },
+  {
+    title: "Folk Acoustic",
+    caption: "indie folk, acoustic fingerpicking guitar, warm male vocal, gentle harmonica, soft brushed percussion, campfire atmosphere, intimate and nostalgic, Bon Iver inspired, raw recording",
+    lyrics: "[Intro - fingerpicking guitar]\n\n[Verse 1]\nDown the river where the willows bend\nI left a letter for my oldest friend\nThe ink has faded but the words remain\nWe were young before we learned the rain\n\n[Verse 2]\nBroken fences line the old dirt road\nEvery post a story never told\nThe barn still stands but the roof caved in\nLike promises we made back then\n\n[Chorus]\nOh carry me home\nThrough fields of golden grain\nWhere the creek still sings\nAnd the sky forgets the pain\n\n[Bridge - harmonica]\n\n[Verse 3]\nNow the porch light flickers in the dark\nAnd the dog still barks at passing cars\nI sit and watch the fireflies ignite\nAnd hum the songs we sang at night\n\n[Chorus]\nOh carry me home\nThrough fields of golden grain\n\n[Outro - gentle]",
+    bpm: "105", keyscale: "G Major", timesignature: "3", vocalLanguage: "en", duration: 180,
+  },
+];
+
 const FORMATS = ["flac", "mp3", "wav"];
 
 const TIME_SIGNATURES = [
@@ -265,6 +328,17 @@ export default function Home() {
     setProgress(0);
   };
 
+  const loadExample = (ex: typeof EXAMPLES[number]) => {
+    setCaption(ex.caption);
+    setLyrics(ex.lyrics);
+    setBpm(ex.bpm);
+    setKeyscale(ex.keyscale);
+    setTimesignature(ex.timesignature);
+    setVocalLanguage(ex.vocalLanguage);
+    setDuration(Math.max(getModel(model).limits.min_duration, Math.min(getModel(model).limits.max_duration, ex.duration)));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}
@@ -293,7 +367,7 @@ export default function Home() {
               type="password"
               value={apiKey}
               onChange={(e) => saveApiKey(e.target.value)}
-              placeholder="sk-..."
+              placeholder="12345|xxxxxxxxxxxxxxxx"
               className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
             />
             <p className="text-xs text-zinc-500 mt-1.5">
@@ -313,7 +387,7 @@ export default function Home() {
         {/* Main Form */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-4">
           {/* Lyrics & Caption side by side */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {/* Lyrics - left, taller */}
             <div>
               <label className="text-xs font-medium text-zinc-400 block mb-1.5">
@@ -504,7 +578,7 @@ export default function Home() {
           </div>
 
           {/* Key/Scale, Time Signature, Vocal Language */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             <div>
               <label className="text-xs font-medium text-zinc-400 block mb-1.5">
                 Key / Scale
@@ -692,6 +766,32 @@ export default function Home() {
             ))}
           </div>
         )}
+        {/* Examples */}
+        <div className="space-y-3">
+          <h3 className="text-xs font-medium text-zinc-500 uppercase tracking-wider">
+            Examples — click to load
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
+            {EXAMPLES.map((ex) => (
+              <button
+                key={ex.title}
+                onClick={() => loadExample(ex)}
+                className="text-left bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800/50 hover:border-zinc-700 rounded-lg p-3 transition-colors cursor-pointer group"
+              >
+                <p className="text-sm font-medium text-zinc-200 group-hover:text-indigo-300 transition-colors">
+                  {ex.title}
+                </p>
+                <p className="text-[11px] text-zinc-500 mt-1 line-clamp-2 leading-tight">
+                  {ex.caption.slice(0, 80)}...
+                </p>
+                <div className="flex gap-2 mt-2 text-[10px] text-zinc-600">
+                  <span>{ex.bpm} bpm</span>
+                  <span>{ex.keyscale}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
       </main>
     </div>
   );
