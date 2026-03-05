@@ -148,4 +148,52 @@ export const EXAMPLES: Example[] = [
     lyrics: "[Intro - percussion]\n\n[Verse 1]\nThe city wakes before the sun\nThe rhythm starts for everyone\nBare feet dancing on the ground\nAncient pulse, eternal sound\n\n[Chorus]\nMove your body, feel the beat\nLet the drums move your feet\nWe are one beneath the sun\nDancing till the day is done\n\n[Horn Section]\n\n[Verse 2]\nStreet to street the music flows\nEvery soul already knows\nThis groove is older than the land\nPass it on from hand to hand\n\n[Chorus]\nMove your body, feel the beat\nLet the drums move your feet\n\n[Percussion Solo]\n\n[Outro - groove fading]",
     bpm: "115", keyscale: "G Minor", timesignature: "4", vocalLanguage: "en", duration: 180,
   },
+  {
+    title: "Disco Polo",
+    caption: "disco polo, catchy synth melody, energetic dance beat, bright male vocal, upbeat and joyful, Polish party music, cheesy keyboard riffs, four-on-the-floor kick, summer wedding vibes, polished euro production",
+    lyrics: "[Intro - synth melody]\n\n[Verse 1]\nMuzyka gra i noc jest mloda\nKazdy tanczy, kazdy szaleje\nTy i ja na parkiecie\nDzisiaj nic nas nie zatrzyma\n\n[Pre-Chorus]\nDaj mi reke, poczuj rytm\nNiech ten beat porwie nas w tan\n\n[Chorus]\nHej, hej, bawmy sie\nCala noc tanczymy razem\nHej, hej, krecmy sie\nDo rana nie przestajem\n\n[Verse 2]\nSwiatla migaja kolorami\nBas dudni w naszych sercach\nNie pytaj mnie o jutro\nDzis jest nasza wielka noc\n\n[Chorus]\nHej, hej, bawmy sie\nCala noc tanczymy razem\nHej, hej, krecmy sie\nDo rana nie przestajem\n\n[Outro - synth melody]",
+    bpm: "138", keyscale: "D Major", timesignature: "4", vocalLanguage: "pl", duration: 150,
+  },
+  {
+    title: "French Chanson",
+    caption: "French chanson, accordion, gentle acoustic guitar, warm male vocal, intimate cafe atmosphere, romantic and melancholic, Parisian nostalgia, vintage recording warmth, Edith Piaf era inspired",
+    lyrics: "[Intro - accordion]\n\n[Verse 1]\nSous les ponts de la Seine endormie\nLes lumieres dansent dans la nuit\nTon sourire comme une melodie\nQui revient hanter mes nuits\n\n[Verse 2]\nLe cafe froid sur la terrasse\nLe temps s'arrete un instant\nJe cherche encore dans la foule\nTon regard et ton parfum\n\n[Chorus]\nParis mon amour, Paris ma douleur\nChaque rue murmure ton nom\nDans le vent d'automne et les fleurs\nJe te cherche a chaque chanson\n\n[Accordion Solo - expressive]\n\n[Verse 3]\nLes saisons passent sans toi\nMais la ville se souvient\nDe nos pas sur les paves\nEt de tout ce qui fut bien\n\n[Chorus]\nParis mon amour, Paris ma douleur\n\n[Outro - gentle, fade out]",
+    bpm: "96", keyscale: "A Minor", timesignature: "3", vocalLanguage: "fr", duration: 180,
+  },
+  {
+    title: "Bollywood Dance",
+    caption: "Bollywood dance track, tabla, dholak, sitar accent, bright female vocal, energetic and celebratory, colorful and festive, modern Indian pop production, dhol bass, string section",
+    lyrics: "[Intro - tabla and sitar]\n\n[Verse 1]\nDil mein hai jo baat chhupee\nAaj kehne ka mausam hai\nNachle re nachle saathiya\nKhushiyon ka yeh jashn hai\n\n[Pre-Chorus - building energy]\nHaathon mein haath leke\nSapno ki raahon mein\n\n[Chorus]\nNachle re nachle\nSaari raat nachle\nDhol baje aur dil dhadke\nNachle re nachle\n\n[Verse 2]\nRangon se bhari yeh shaam\nHar taraf khushi ka naam\nPairon mein ghungroo baandh ke\nChal duniya ko nacha de\n\n[Bridge - dhol solo]\n\n[Final Chorus - powerful]\nNACHLE RE NACHLE\nSAARI RAAT NACHLE\n\n[Outro - tabla fade]",
+    bpm: "130", keyscale: "C Major", timesignature: "4", vocalLanguage: "hi", duration: 150,
+  },
+  {
+    title: "German Techno",
+    caption: "Berlin techno, dark minimal, driving four-on-the-floor kick, deep pulsing bass, industrial textures, hypnotic synth loops, warehouse atmosphere, Berghain inspired, relentless and immersive",
+    lyrics: "[Instrumental]\n\n[Intro - kick and bass pulse]\n\n[Build - synth loop entering]\n\n[Main Groove - full hypnotic drive]\n\n[Breakdown - dark textures, sparse]\n\n[Build - industrial layers]\n\n[Main Groove - relentless]\n\n[Outro - stripped back, fade]",
+    bpm: "135", keyscale: "C Minor", timesignature: "4", vocalLanguage: "de", duration: 180,
+  },
+  {
+    title: "Brazilian Funk",
+    caption: "Brazilian funk carioca, heavy bass, atabaque percussion, catchy vocal hook, male vocal, energetic baile funk beat, Rio de Janeiro party vibe, modern and bouncy, raw production",
+    lyrics: "[Intro - bass hit]\n\n[Verse 1]\nO baile comecou, ja pode chegar\nO som ta pesado, o chao vai tremer\nLevanta a mao e pode gritar\nQue a noite e nossa, ninguem vai parar\n\n[Chorus]\nVai, vai, vai descer\nTodo mundo quer saber\nO beat ta forte, o grave e demais\nA favela nunca para jamais\n\n[Verse 2]\nDJ solta o beat pesadao\nTodo mundo junto nessa conexao\nDo Leme ao Pontal, da Sul a Central\nO funk e a voz do povo real\n\n[Chorus]\nVai, vai, vai descer\nTodo mundo quer saber\n\n[Outro - bass heavy]",
+    bpm: "150", keyscale: "D Minor", timesignature: "4", vocalLanguage: "pt", duration: 120,
+  },
+  {
+    title: "Arabic Oud Ballad",
+    caption: "Arabic ballad, solo oud, oriental maqam, gentle darbuka percussion, emotional male vocal, melancholic and passionate, Middle Eastern classical influence, intimate and warm, reverb-rich atmosphere",
+    lyrics: "[Intro - solo oud, rubato]\n\n[Verse 1]\nيا ليل يا عين يا ليل\nقلبي حزين والدمع سايل\nفين الحبيب اللي وعدني\nراح وتركني في الليالي\n\n[Verse 2]\nنسمة هوا من بعيد\nتحمل عطرك يا حبيبي\nوأنا هنا وحدي أغني\nأغنية حب قديمة\n\n[Chorus]\nيا حبيبي يا نور عيني\nارجع تعالى لا تبعد عني\nالقلب ما ينسى حنينك\nوالروح تبكي من غيابك\n\n[Oud Solo - expressive]\n\n[Verse 3]\nلو كل نجمة في السما\nتحكي حكاية عن هوانا\nما كفت ليالي العمر كله\nيوصف جمال اللي بينا\n\n[Chorus]\nيا حبيبي يا نور عيني\n\n[Outro - oud, fade out]",
+    bpm: "80", keyscale: "D Minor", timesignature: "4", vocalLanguage: "ar", duration: 180,
+  },
+  {
+    title: "Turkish Psychedelic",
+    caption: "Anatolian rock, psychedelic, electric saz, wah-wah guitar, groovy bass, driving drums, 70s Turkish rock, Baris Manco inspired, hypnotic and raw, vintage analog production",
+    lyrics: "[Intro - electric saz]\n\n[Verse 1]\nDaglardan esen yel gibi\nRuhumu alip goturur\nBu yollar bitmez sanirdim\nAma her sey bir gun biter\n\n[Chorus]\nDon gel yolcu, don gel\nYollar seni bekler\nGecenin karanliginda\nBir isik hep yanar\n\n[Saz Solo - psychedelic]\n\n[Verse 2]\nZaman bir nehir akar\nGeri donusu olmayan\nBugunku gun yarin olmaz\nYasamak simdi burada\n\n[Chorus]\nDon gel yolcu, don gel\nYollar seni bekler\n\n[Outro - heavy groove]",
+    bpm: "125", keyscale: "E Minor", timesignature: "4", vocalLanguage: "tr", duration: 150,
+  },
+  {
+    title: "Korean Ballad",
+    caption: "Korean ballad, emotional piano, lush string orchestra, powerful male vocal, soaring high notes, dramatic and heartfelt, K-drama OST style, polished production, bittersweet atmosphere",
+    lyrics: "[Intro - piano]\n\n[Verse 1]\n텅 빈 거리에 혼자 서서\n너의 이름을 불러본다\n바람에 실려 사라지는\n우리의 마지막 인사\n\n[Pre-Chorus]\n시간이 지나도\n이 마음은 변하지 않아\n\n[Chorus - powerful]\n너를 보낸 그날부터\n하루도 잊은 적 없어\n이 가슴에 남은 너의 온기\n아직도 나를 울려\n\n[Verse 2]\n사진 속 너의 미소가\n오늘따라 더 선명해\n돌아갈 수 없는 그때로\n다시 한번 갈 수 있다면\n\n[Bridge - whispered]\n미안해 그리고 고마워\n사랑했어 정말로\n\n[Final Chorus - powerful]\n너를 보낸 그날부터\n하루도 잊은 적 없어\n\n[Outro - piano, fade out]",
+    bpm: "70", keyscale: "Ab Major", timesignature: "4", vocalLanguage: "ko", duration: 180,
+  },
 ];
