@@ -346,6 +346,10 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
           <h1 className="text-lg font-semibold text-zinc-100 flex items-center gap-2">
             <span className="text-2xl">&#9835;</span> Music Generator
+            <span className="text-zinc-600 text-xs font-normal">powered by</span>
+            <a href="https://deapi.ai" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <img src="https://deapi.ai/images/logo-deapi.svg" alt="deAPI" className="h-5 opacity-70 hover:opacity-100 transition-opacity" />
+            </a>
           </h1>
           <button
             onClick={() => setShowSettings(!showSettings)}
@@ -793,6 +797,18 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      <footer className="border-t border-zinc-800/40 mt-8 py-6">
+        <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-zinc-600">
+          <span>Powered by</span>
+          <a href="https://deapi.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 transition-colors">
+            <img src="https://deapi.ai/images/logo-deapi.svg" alt="deAPI" className="h-4" />
+            <span>deapi.ai</span>
+          </a>
+          <span className="hidden sm:inline">—</span>
+          <span>AI Music Generation API</span>
+        </div>
+      </footer>
     </div>
   );
 }
