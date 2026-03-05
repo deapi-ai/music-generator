@@ -49,7 +49,7 @@ export const EXAMPLES: Example[] = [
   {
     title: "Reggaeton",
     caption: "reggaeton, dembow rhythm, Latin urban, catchy perreo beat, warm male vocal, 808 bass, tropical synths, dancehall influence, summer party vibe, polished production",
-    lyrics: "[Intro]\n\n[Verse 1]\nLa noche se enciende ya\nEl ritmo no va a parar\nTu cuerpo se mueve slow\nY el beat te va a dominar\n\n[Pre-Chorus]\nDale vuelta, no pares\nQue la calle es de nadie\n\n[Chorus]\nBaila, baila, baila\nQue esta noche es para ti\nMueve, mueve, mueve\nHasta que salga el sol aqui\n\n[Verse 2]\nLas luces del boulevard\nReflejan tu mirada\nNo importa lo demas\nEsta noche no hay manana\n\n[Chorus]\nBaila, baila, baila\nQue esta noche es para ti\n\n[Outro]",
+    lyrics: "[Intro]\n\n[Verse 1]\nLa noche se enciende ya\nEl ritmo no va a parar\nTu cuerpo se mueve slow\nY el beat te va a dominar\n\n[Pre-Chorus]\nDale vuelta, no pares\nQue la calle es de nadie\n\n[Chorus]\nBaila, baila, baila\nQue esta noche es para ti\nMueve, mueve, mueve\nHasta que salga el sol aquí\n\n[Verse 2]\nLas luces del boulevard\nReflejan tu mirada\nNo importa lo demás\nEsta noche no hay mañana\n\n[Chorus]\nBaila, baila, baila\nQue esta noche es para ti\n\n[Outro]",
     bpm: "95", keyscale: "C Minor", timesignature: "4", vocalLanguage: "es", duration: 150,
   },
   {
@@ -138,8 +138,8 @@ export const EXAMPLES: Example[] = [
   },
   {
     title: "Flamenco Guitar",
-    caption: "flamenco, nylon string guitar, percussive rasgueado strumming, cajon, handclaps, passionate and fiery, Spanish guitar virtuoso, intimate live recording, raw and expressive",
-    lyrics: "[Instrumental]\n\n[Intro - solo guitar, rubato]\n\n[Main Theme - rasgueado, fiery]\n\n[Falseta - melodic solo]\n\n[Breakdown - cajon and palmas]\n\n[Climax - fast picado, explosive]\n\n[Outro - gentle tremolo, fade]",
+    caption: "flamenco, nylon string guitar, percussive rasgueado strumming, cajón, handclaps, passionate and fiery, Spanish guitar virtuoso, intimate live recording, raw and expressive",
+    lyrics: "[Instrumental]\n\n[Intro - solo guitar, rubato]\n\n[Main Theme - rasgueado, fiery]\n\n[Falseta - melodic solo]\n\n[Breakdown - cajón and palmas]\n\n[Climax - fast picado, explosive]\n\n[Outro - gentle tremolo, fade]",
     bpm: "120", keyscale: "A Minor", timesignature: "4", vocalLanguage: "es", duration: 150,
   },
   {
@@ -151,19 +151,19 @@ export const EXAMPLES: Example[] = [
   {
     title: "Disco Polo",
     caption: "disco polo, catchy synth melody, energetic dance beat, bright male vocal, upbeat and joyful, Polish party music, cheesy keyboard riffs, four-on-the-floor kick, summer wedding vibes, polished euro production",
-    lyrics: "[Intro - synth melody]\n\n[Verse 1]\nMuzyka gra i noc jest mloda\nKazdy tanczy, kazdy szaleje\nTy i ja na parkiecie\nDzisiaj nic nas nie zatrzyma\n\n[Pre-Chorus]\nDaj mi reke, poczuj rytm\nNiech ten beat porwie nas w tan\n\n[Chorus]\nHej, hej, bawmy sie\nCala noc tanczymy razem\nHej, hej, krecmy sie\nDo rana nie przestajem\n\n[Verse 2]\nSwiatla migaja kolorami\nBas dudni w naszych sercach\nNie pytaj mnie o jutro\nDzis jest nasza wielka noc\n\n[Chorus]\nHej, hej, bawmy sie\nCala noc tanczymy razem\nHej, hej, krecmy sie\nDo rana nie przestajem\n\n[Outro - synth melody]",
+    lyrics: "[Intro - synth melody]\n\n[Verse 1]\nMuzyka gra i noc jest młoda\nKażdy tańczy, każdy szaleje\nTy i ja na parkiecie\nDzisiaj nic nas nie zatrzyma\n\n[Pre-Chorus]\nDaj mi rękę, poczuj rytm\nNiech ten beat porwie nas w tan\n\n[Chorus]\nHej, hej, bawmy się\nCałą noc tańczymy razem\nHej, hej, kręćmy się\nDo rana nie przestajem\n\n[Verse 2]\nŚwiatła migają kolorami\nBas dudni w naszych sercach\nNie pytaj mnie o jutro\nDziś jest nasza wielka noc\n\n[Chorus]\nHej, hej, bawmy się\nCałą noc tańczymy razem\nHej, hej, kręćmy się\nDo rana nie przestajem\n\n[Outro - synth melody]",
     bpm: "138", keyscale: "D Major", timesignature: "4", vocalLanguage: "pl", duration: 150,
   },
   {
     title: "French Chanson",
     caption: "French chanson, accordion, gentle acoustic guitar, warm male vocal, intimate cafe atmosphere, romantic and melancholic, Parisian nostalgia, vintage recording warmth, Edith Piaf era inspired",
-    lyrics: "[Intro - accordion]\n\n[Verse 1]\nSous les ponts de la Seine endormie\nLes lumieres dansent dans la nuit\nTon sourire comme une melodie\nQui revient hanter mes nuits\n\n[Verse 2]\nLe cafe froid sur la terrasse\nLe temps s'arrete un instant\nJe cherche encore dans la foule\nTon regard et ton parfum\n\n[Chorus]\nParis mon amour, Paris ma douleur\nChaque rue murmure ton nom\nDans le vent d'automne et les fleurs\nJe te cherche a chaque chanson\n\n[Accordion Solo - expressive]\n\n[Verse 3]\nLes saisons passent sans toi\nMais la ville se souvient\nDe nos pas sur les paves\nEt de tout ce qui fut bien\n\n[Chorus]\nParis mon amour, Paris ma douleur\n\n[Outro - gentle, fade out]",
+    lyrics: "[Intro - accordion]\n\n[Verse 1]\nSous les ponts de la Seine endormie\nLes lumières dansent dans la nuit\nTon sourire comme une mélodie\nQui revient hanter mes nuits\n\n[Verse 2]\nLe café froid sur la terrasse\nLe temps s'arrête un instant\nJe cherche encore dans la foule\nTon regard et ton parfum\n\n[Chorus]\nParis mon amour, Paris ma douleur\nChaque rue murmure ton nom\nDans le vent d'automne et les fleurs\nJe te cherche à chaque chanson\n\n[Accordion Solo - expressive]\n\n[Verse 3]\nLes saisons passent sans toi\nMais la ville se souvient\nDe nos pas sur les pavés\nEt de tout ce qui fut bien\n\n[Chorus]\nParis mon amour, Paris ma douleur\n\n[Outro - gentle, fade out]",
     bpm: "96", keyscale: "A Minor", timesignature: "3", vocalLanguage: "fr", duration: 180,
   },
   {
     title: "Bollywood Dance",
     caption: "Bollywood dance track, tabla, dholak, sitar accent, bright female vocal, energetic and celebratory, colorful and festive, modern Indian pop production, dhol bass, string section",
-    lyrics: "[Intro - tabla and sitar]\n\n[Verse 1]\nDil mein hai jo baat chhupee\nAaj kehne ka mausam hai\nNachle re nachle saathiya\nKhushiyon ka yeh jashn hai\n\n[Pre-Chorus - building energy]\nHaathon mein haath leke\nSapno ki raahon mein\n\n[Chorus]\nNachle re nachle\nSaari raat nachle\nDhol baje aur dil dhadke\nNachle re nachle\n\n[Verse 2]\nRangon se bhari yeh shaam\nHar taraf khushi ka naam\nPairon mein ghungroo baandh ke\nChal duniya ko nacha de\n\n[Bridge - dhol solo]\n\n[Final Chorus - powerful]\nNACHLE RE NACHLE\nSAARI RAAT NACHLE\n\n[Outro - tabla fade]",
+    lyrics: "[Intro - tabla and sitar]\n\n[Verse 1]\nDil mein hai jo baat chhupi\nAaj kehne ka mausam hai\nNachle re nachle saathiya\nKhushiyon ka yeh jashn hai\n\n[Pre-Chorus - building energy]\nHaathon mein haath leke\nSapnon ki raahon mein\n\n[Chorus]\nNachle re nachle\nSaari raat nachle\nDhol baje aur dil dhadke\nNachle re nachle\n\n[Verse 2]\nRangon se bhari yeh shaam\nHar taraf khushi ka naam\nPairon mein ghungroo baandh ke\nChal duniya ko nacha de\n\n[Bridge - dhol solo]\n\n[Final Chorus - powerful]\nNACHLE RE NACHLE\nSAARI RAAT NACHLE\n\n[Outro - tabla fade]",
     bpm: "130", keyscale: "C Major", timesignature: "4", vocalLanguage: "hi", duration: 150,
   },
   {
@@ -175,7 +175,7 @@ export const EXAMPLES: Example[] = [
   {
     title: "Brazilian Funk",
     caption: "Brazilian funk carioca, heavy bass, atabaque percussion, catchy vocal hook, male vocal, energetic baile funk beat, Rio de Janeiro party vibe, modern and bouncy, raw production",
-    lyrics: "[Intro - bass hit]\n\n[Verse 1]\nO baile comecou, ja pode chegar\nO som ta pesado, o chao vai tremer\nLevanta a mao e pode gritar\nQue a noite e nossa, ninguem vai parar\n\n[Chorus]\nVai, vai, vai descer\nTodo mundo quer saber\nO beat ta forte, o grave e demais\nA favela nunca para jamais\n\n[Verse 2]\nDJ solta o beat pesadao\nTodo mundo junto nessa conexao\nDo Leme ao Pontal, da Sul a Central\nO funk e a voz do povo real\n\n[Chorus]\nVai, vai, vai descer\nTodo mundo quer saber\n\n[Outro - bass heavy]",
+    lyrics: "[Intro - bass hit]\n\n[Verse 1]\nO baile começou, já pode chegar\nO som tá pesado, o chão vai tremer\nLevanta a mão e pode gritar\nQue a noite é nossa, ninguém vai parar\n\n[Chorus]\nVai, vai, vai descer\nTodo mundo quer saber\nO beat tá forte, o grave é demais\nA favela nunca para jamais\n\n[Verse 2]\nDJ solta o beat pesadão\nTodo mundo junto nessa conexão\nDo Leme ao Pontal, da Sul à Central\nO funk é a voz do povo real\n\n[Chorus]\nVai, vai, vai descer\nTodo mundo quer saber\n\n[Outro - bass heavy]",
     bpm: "150", keyscale: "D Minor", timesignature: "4", vocalLanguage: "pt", duration: 120,
   },
   {
@@ -186,8 +186,8 @@ export const EXAMPLES: Example[] = [
   },
   {
     title: "Turkish Psychedelic",
-    caption: "Anatolian rock, psychedelic, electric saz, wah-wah guitar, groovy bass, driving drums, 70s Turkish rock, Baris Manco inspired, hypnotic and raw, vintage analog production",
-    lyrics: "[Intro - electric saz]\n\n[Verse 1]\nDaglardan esen yel gibi\nRuhumu alip goturur\nBu yollar bitmez sanirdim\nAma her sey bir gun biter\n\n[Chorus]\nDon gel yolcu, don gel\nYollar seni bekler\nGecenin karanliginda\nBir isik hep yanar\n\n[Saz Solo - psychedelic]\n\n[Verse 2]\nZaman bir nehir akar\nGeri donusu olmayan\nBugunku gun yarin olmaz\nYasamak simdi burada\n\n[Chorus]\nDon gel yolcu, don gel\nYollar seni bekler\n\n[Outro - heavy groove]",
+    caption: "Anatolian rock, psychedelic, electric saz, wah-wah guitar, groovy bass, driving drums, 70s Turkish rock, Barış Manço inspired, hypnotic and raw, vintage analog production",
+    lyrics: "[Intro - electric saz]\n\n[Verse 1]\nDağlardan esen yel gibi\nRuhumu alıp götürür\nBu yollar bitmez sanırdım\nAma her şey bir gün biter\n\n[Chorus]\nDön gel yolcu, dön gel\nYollar seni bekler\nGecenin karanlığında\nBir ışık hep yanar\n\n[Saz Solo - psychedelic]\n\n[Verse 2]\nZaman bir nehir akar\nGeri dönüşü olmayan\nBugünkü gün yarın olmaz\nYaşamak şimdi burada\n\n[Chorus]\nDön gel yolcu, dön gel\nYollar seni bekler\n\n[Outro - heavy groove]",
     bpm: "125", keyscale: "E Minor", timesignature: "4", vocalLanguage: "tr", duration: 150,
   },
   {
