@@ -6,20 +6,21 @@ Generate music from text descriptions — choose a genre, write lyrics, tweak pa
 
 ## Features
 
-- **18 genre presets** — lo-fi, rock, jazz, EDM, orchestral, reggaeton, K-pop, flamenco, and more
-- **Full parameter control** — duration, BPM, key/scale, time signature, inference steps, guidance scale
-- **Per-model limits** — sliders auto-adjust to each model's constraints
-- **Multilingual lyrics** — English, Chinese, Japanese, Spanish, and any language
-- **Async generation** — submit, poll progress, play result
+- **26 genre presets** — lo-fi, rock, jazz, EDM, orchestral, reggaeton, K-pop, flamenco, disco polo, bossa nova, and more
+- **12 languages** — English, Chinese, Japanese, Spanish, Polish, French, Hindi, German, Portuguese, Arabic, Turkish, Korean
+- **Full parameter control** — duration, BPM, key/scale, time signature, inference steps, guidance scale with range sliders
+- **Per-model limits** — sliders auto-adjust to each model's constraints (fixed values shown as disabled)
+- **Async generation** — submit, poll progress with live progress bar, play result
+- **Session history** — previous generations kept in session for quick playback
 - **Dark theme UI** — responsive, works on desktop and mobile
 - **Vercel-ready** — deploy in one click
 
 ## Models
 
-| Model | Speed | Steps | Guidance | Duration |
-|-------|-------|-------|----------|----------|
-| ACE-Step 1.5 Turbo | Fast | 8 (fixed) | 1 (fixed) | 10–300s |
-| ACE-Step 1.5 Base | Quality | 5–100 | 3–20 | 30–300s |
+| Model | Speed | Steps | Guidance | Duration | BPM |
+|-------|-------|-------|----------|----------|-----|
+| ACE-Step 1.5 Turbo | Fast | 8 (fixed) | 1 (fixed) | 10–300s | 50–200 |
+| ACE-Step 1.5 Base | Quality | 5–100 | 3–20 | 30–300s | 50–200 |
 
 ## Quick Start
 
@@ -29,6 +30,8 @@ npm run dev
 ```
 
 Open [localhost:3000](http://localhost:3000), enter your deAPI key, and start generating.
+
+Get your API key at [deapi.ai](https://deapi.ai).
 
 ## Tech Stack
 
@@ -50,13 +53,13 @@ API key is sent via `x-api-key` header to the proxy routes, which forward it as 
 
 ```
 src/app/
-├── page.tsx              # Main UI
-├── examples.ts           # 18 genre preset examples
-├── layout.tsx            # Root layout
-├── globals.css           # Styles
+├── page.tsx              # Main UI (form, sliders, player, history)
+├── examples.ts           # 26 genre preset examples in 12 languages
+├── layout.tsx            # Root layout + favicon
+├── globals.css           # Tailwind + custom styles
 └── api/
-    ├── generate/route.ts # POST proxy → deAPI
-    └── status/[id]/route.ts # GET proxy → deAPI
+    ├── generate/route.ts # POST proxy → deAPI /txt2music
+    └── status/[id]/route.ts # GET proxy → deAPI /request-status/:id
 ```
 
 ## Deploy to Vercel
