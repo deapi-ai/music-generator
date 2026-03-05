@@ -3,9 +3,35 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const MODELS = [
-  { value: "AceStep_1_5_Turbo", label: "AceStep Turbo (Fast)", defaultSteps: 8 },
-  { value: "AceStep_1_5_Base", label: "AceStep Base (Quality)", defaultSteps: 32 },
+  {
+    value: "AceStep_1_5_Turbo",
+    label: "ACE-Step 1.5 Turbo",
+    limits: {
+      min_duration: 10, max_duration: 300,
+      min_bpm: 50, max_bpm: 200,
+      min_steps: 8, max_steps: 8,
+      min_guidance: 1, max_guidance: 1,
+      min_caption: 10, max_caption: 300,
+    },
+    defaultSteps: 8,
+    defaultGuidance: 1,
+  },
+  {
+    value: "AceStep_1_5_Base",
+    label: "ACE-Step 1.5 Base",
+    limits: {
+      min_duration: 30, max_duration: 300,
+      min_bpm: 50, max_bpm: 200,
+      min_steps: 5, max_steps: 100,
+      min_guidance: 3, max_guidance: 20,
+      min_caption: 10, max_caption: 300,
+    },
+    defaultSteps: 32,
+    defaultGuidance: 7,
+  },
 ];
+
+const getModel = (slug: string) => MODELS.find((m) => m.value === slug)!;
 
 const FORMATS = ["flac", "mp3", "wav"];
 
@@ -43,10 +69,9 @@ export default function Home() {
   const [timesignature, setTimesignature] = useState("");
   const [vocalLanguage, setVocalLanguage] = useState("en");
   const [inferenceSteps, setInferenceSteps] = useState(8);
-  const [guidanceScale, setGuidanceScale] = useState(7.0);
+  const [guidanceScale, setGuidanceScale] = useState(1);
   const [seed, setSeed] = useState("");
   const [format, setFormat] = useState("flac");
-  const [showAdvanced, setShowAdvanced] = useState(false);
 
   // Generation state
   const [status, setStatus] = useState<Status>("idle");
@@ -74,11 +99,17 @@ export default function Home() {
     localStorage.setItem("deapi-music-key", key);
   };
 
-  // Auto-update inference steps when model changes
+  // Auto-update constrained values when model changes
   const handleModelChange = (newModel: string) => {
     setModel(newModel);
-    const m = MODELS.find((x) => x.value === newModel);
-    if (m) setInferenceSteps(m.defaultSteps);
+    const m = getModel(newModel);
+    setInferenceSteps(m.defaultSteps);
+    setGuidanceScale(m.defaultGuidance);
+    setDuration((d) => Math.max(m.limits.min_duration, Math.min(m.limits.max_duration, d)));
+    if (bpm) {
+      const b = Number(bpm);
+      if (b < m.limits.min_bpm || b > m.limits.max_bpm) setBpm("");
+    }
   };
 
   // Cleanup polling on unmount
@@ -283,12 +314,17 @@ export default function Home() {
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-4">
           {/* Caption */}
           <div>
-            <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-              Caption <span className="text-red-400">*</span>
-            </label>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-medium text-zinc-400">
+                Caption <span className="text-red-400">*</span>
+              </label>
+              <span className={`text-[10px] tabular-nums ${caption.length > 280 ? "text-amber-400" : "text-zinc-600"}`}>
+                {caption.length}/{getModel(model).limits.max_caption}
+              </span>
+            </div>
             <textarea
               value={caption}
-              onChange={(e) => setCaption(e.target.value)}
+              onChange={(e) => setCaption(e.target.value.slice(0, getModel(model).limits.max_caption))}
               placeholder="Describe the style and mood: upbeat electronic dance music with energetic synths and punchy drums..."
               rows={3}
               className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors resize-y"
@@ -312,8 +348,8 @@ export default function Home() {
             />
           </div>
 
-          {/* Row 1: Model, Duration, Format */}
-          <div className="grid grid-cols-3 gap-3">
+          {/* Model & Format */}
+          <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs font-medium text-zinc-400 block mb-1.5">
                 Model
@@ -329,19 +365,6 @@ export default function Home() {
                   </option>
                 ))}
               </select>
-            </div>
-            <div>
-              <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-                Duration (sec)
-              </label>
-              <input
-                type="number"
-                value={duration}
-                onChange={(e) => setDuration(Number(e.target.value))}
-                min={10}
-                max={600}
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
-              />
             </div>
             <div>
               <label className="text-xs font-medium text-zinc-400 block mb-1.5">
@@ -361,22 +384,124 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Row 2: BPM, Key, Time Signature */}
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <label className="text-xs font-medium text-zinc-400 block mb-1.5">
+          {/* Duration slider */}
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-medium text-zinc-400">
+                Duration
+              </label>
+              <span className="text-xs text-zinc-300 tabular-nums">{duration}s</span>
+            </div>
+            <input
+              type="range"
+              value={duration}
+              onChange={(e) => setDuration(Number(e.target.value))}
+              min={getModel(model).limits.min_duration}
+              max={getModel(model).limits.max_duration}
+              step={5}
+              className="w-full accent-indigo-500 h-1.5 bg-zinc-800 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-webkit-slider-thumb]:hover:bg-indigo-400 [&::-webkit-slider-thumb]:transition-colors"
+            />
+            <div className="flex justify-between text-[10px] text-zinc-600 mt-0.5">
+              <span>{getModel(model).limits.min_duration}s</span>
+              <span>{getModel(model).limits.max_duration}s</span>
+            </div>
+          </div>
+
+          {/* BPM slider */}
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-medium text-zinc-400">
                 BPM
               </label>
-              <input
-                type="number"
-                value={bpm}
-                onChange={(e) => setBpm(e.target.value)}
-                min={30}
-                max={300}
-                placeholder="Auto"
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
-              />
+              <div className="flex items-center gap-2">
+                {bpm && (
+                  <button
+                    onClick={() => setBpm("")}
+                    className="text-[10px] text-zinc-500 hover:text-zinc-300 transition-colors"
+                  >
+                    Reset to Auto
+                  </button>
+                )}
+                <span className="text-xs text-zinc-300 tabular-nums">
+                  {bpm || "Auto"}
+                </span>
+              </div>
             </div>
+            <input
+              type="range"
+              value={bpm || getModel(model).limits.min_bpm}
+              onChange={(e) => setBpm(e.target.value)}
+              min={getModel(model).limits.min_bpm}
+              max={getModel(model).limits.max_bpm}
+              step={1}
+              className="w-full accent-indigo-500 h-1.5 bg-zinc-800 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-webkit-slider-thumb]:hover:bg-indigo-400 [&::-webkit-slider-thumb]:transition-colors"
+            />
+            <div className="flex justify-between text-[10px] text-zinc-600 mt-0.5">
+              <span>{getModel(model).limits.min_bpm}</span>
+              <span>{getModel(model).limits.max_bpm}</span>
+            </div>
+          </div>
+
+          {/* Inference Steps slider */}
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-medium text-zinc-400">
+                Inference Steps
+              </label>
+              <span className="text-xs text-zinc-300 tabular-nums">
+                {inferenceSteps}
+                {getModel(model).limits.min_steps === getModel(model).limits.max_steps && (
+                  <span className="text-zinc-500 ml-1">(fixed)</span>
+                )}
+              </span>
+            </div>
+            <input
+              type="range"
+              value={inferenceSteps}
+              onChange={(e) => setInferenceSteps(Number(e.target.value))}
+              min={getModel(model).limits.min_steps}
+              max={getModel(model).limits.max_steps}
+              step={1}
+              disabled={getModel(model).limits.min_steps === getModel(model).limits.max_steps}
+              className="w-full accent-indigo-500 h-1.5 bg-zinc-800 rounded-full appearance-none cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-webkit-slider-thumb]:hover:bg-indigo-400 [&::-webkit-slider-thumb]:transition-colors"
+            />
+            <div className="flex justify-between text-[10px] text-zinc-600 mt-0.5">
+              <span>{getModel(model).limits.min_steps}</span>
+              <span>{getModel(model).limits.max_steps}</span>
+            </div>
+          </div>
+
+          {/* Guidance Scale slider */}
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-medium text-zinc-400">
+                Guidance Scale
+              </label>
+              <span className="text-xs text-zinc-300 tabular-nums">
+                {guidanceScale}
+                {getModel(model).limits.min_guidance === getModel(model).limits.max_guidance && (
+                  <span className="text-zinc-500 ml-1">(fixed)</span>
+                )}
+              </span>
+            </div>
+            <input
+              type="range"
+              value={guidanceScale}
+              onChange={(e) => setGuidanceScale(Number(e.target.value))}
+              min={getModel(model).limits.min_guidance}
+              max={getModel(model).limits.max_guidance}
+              step={0.5}
+              disabled={getModel(model).limits.min_guidance === getModel(model).limits.max_guidance}
+              className="w-full accent-indigo-500 h-1.5 bg-zinc-800 rounded-full appearance-none cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-webkit-slider-thumb]:hover:bg-indigo-400 [&::-webkit-slider-thumb]:transition-colors"
+            />
+            <div className="flex justify-between text-[10px] text-zinc-600 mt-0.5">
+              <span>{getModel(model).limits.min_guidance}</span>
+              <span>{getModel(model).limits.max_guidance}</span>
+            </div>
+          </div>
+
+          {/* Key/Scale, Time Signature, Vocal Language */}
+          <div className="grid grid-cols-3 gap-3">
             <div>
               <label className="text-xs font-medium text-zinc-400 block mb-1.5">
                 Key / Scale
@@ -405,79 +530,33 @@ export default function Home() {
                 ))}
               </select>
             </div>
+            <div>
+              <label className="text-xs font-medium text-zinc-400 block mb-1.5">
+                Vocal Lang
+              </label>
+              <input
+                type="text"
+                value={vocalLanguage}
+                onChange={(e) => setVocalLanguage(e.target.value)}
+                placeholder="en"
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
+              />
+            </div>
           </div>
 
-          {/* Advanced Settings */}
-          <button
-            onClick={() => setShowAdvanced(!showAdvanced)}
-            className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1"
-          >
-            <span
-              className="inline-block transition-transform"
-              style={{
-                transform: showAdvanced ? "rotate(90deg)" : "rotate(0deg)",
-              }}
-            >
-              &#9654;
-            </span>
-            Advanced Settings
-          </button>
-
-          {showAdvanced && (
-            <div className="grid grid-cols-4 gap-3">
-              <div>
-                <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-                  Steps
-                </label>
-                <input
-                  type="number"
-                  value={inferenceSteps}
-                  onChange={(e) => setInferenceSteps(Number(e.target.value))}
-                  min={1}
-                  max={100}
-                  className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-                  Guidance
-                </label>
-                <input
-                  type="number"
-                  value={guidanceScale}
-                  onChange={(e) => setGuidanceScale(Number(e.target.value))}
-                  min={0}
-                  max={20}
-                  step={0.5}
-                  className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-                  Seed
-                </label>
-                <input
-                  type="number"
-                  value={seed}
-                  onChange={(e) => setSeed(e.target.value)}
-                  placeholder="Random"
-                  className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="text-xs font-medium text-zinc-400 block mb-1.5">
-                  Vocal Lang
-                </label>
-                <input
-                  type="text"
-                  value={vocalLanguage}
-                  onChange={(e) => setVocalLanguage(e.target.value)}
-                  placeholder="en"
-                  className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
-                />
-              </div>
-            </div>
-          )}
+          {/* Seed */}
+          <div>
+            <label className="text-xs font-medium text-zinc-400 block mb-1.5">
+              Seed
+            </label>
+            <input
+              type="number"
+              value={seed}
+              onChange={(e) => setSeed(e.target.value)}
+              placeholder="Random"
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 transition-colors"
+            />
+          </div>
 
           {/* Generate / Cancel Buttons */}
           <div className="flex gap-3 pt-1">
