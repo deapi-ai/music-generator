@@ -33,6 +33,8 @@ Open [localhost:3000](http://localhost:3000), enter your deAPI key, and start ge
 
 Get your API key at [deapi.ai](https://deapi.ai).
 
+For best results, read the [ACE-Step 1.5 Tutorial](https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/Tutorial.md) — it covers how to write effective captions, structure lyrics with tags, and tune parameters for different genres.
+
 ## Tech Stack
 
 - **Next.js 15** (App Router) + **TypeScript**

@@ -737,14 +737,24 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-zinc-800/40 mt-8 py-6">
-        <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-zinc-600">
-          <span>Powered by</span>
-          <a href="https://deapi.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 transition-colors">
-            <img src="https://deapi.ai/images/logo-deapi.svg" alt="deAPI" className="h-4" />
-            <span>deapi.ai</span>
+        <div className="max-w-3xl mx-auto px-4 flex flex-col items-center gap-3 text-xs text-zinc-600">
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <span>Powered by</span>
+            <a href="https://deapi.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 transition-colors">
+              <img src="https://deapi.ai/images/logo-deapi.svg" alt="deAPI" className="h-4" />
+              <span>deapi.ai</span>
+            </a>
+            <span className="hidden sm:inline">—</span>
+            <span>AI Music Generation API</span>
+          </div>
+          <a
+            href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/Tutorial.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-400/70 hover:text-indigo-300 transition-colors"
+          >
+            Read the ACE-Step 1.5 Tutorial for best results
           </a>
-          <span className="hidden sm:inline">—</span>
-          <span>AI Music Generation API</span>
         </div>
       </footer>
     </div>
