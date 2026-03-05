@@ -216,7 +216,7 @@ export default function Home() {
     if (keyscale.trim()) body.keyscale = keyscale.trim();
     if (timesignature) body.timesignature = Number(timesignature);
     if (vocalLanguage.trim()) body.vocal_language = vocalLanguage.trim();
-    if (seed) body.seed = Number(seed);
+    body.seed = seed ? Number(seed) : Math.floor(Math.random() * 2147483647);
 
     try {
       const res = await fetch("/api/generate", {
